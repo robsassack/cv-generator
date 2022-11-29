@@ -16,6 +16,11 @@
   justify-content: center;
 }
 
+.App--form {
+  display: flex;
+  flex-direction: column;
+}
+
 .general, .education, .experience {
   width: 200px;
 }

@@ -31,7 +31,7 @@ class App extends React.Component {
           location: "Washington, DC",
           start: "Feb 2024",
           end: "Present",
-          description: "- Developed websites",
+          description: `- Developed websites\n- Developed apps`,
         },
       ],
     };
@@ -105,6 +105,20 @@ class App extends React.Component {
     this.setState({ experience });
   };
 
+  clearForm = () => {
+    this.setState({
+      firstName: "",
+      lastName: "",
+      location: "",
+      email: "",
+      phone: "",
+      education: [
+      ],
+      experience: [
+      ],
+    });
+  }
+
   render() {
     return (
       <div className='App'>
@@ -131,6 +145,8 @@ class App extends React.Component {
               addExperience={this.addExperience}
               removeExperience={this.removeExperience}
             />
+            <br />
+            <button onClick={this.clearForm}>Reset</button>
           </div>
         </div>
       </div>
