@@ -3,3 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.general, .education {
+  width: 200px;
+}
+
+.general--form, .education--form {
+  display: flex;
+  flex-direction: column;
+}
