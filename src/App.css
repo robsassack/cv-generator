@@ -4,11 +4,15 @@
   box-sizing: border-box;
 }
 
-.general, .education {
+.general, .education, .experience {
   width: 200px;
 }
 
-.general--form, .education--form {
+.general--form, .education--form, .experience--form {
   display: flex;
   flex-direction: column;
+}
+
+.display--exp-desc {
+  white-space: pre-line;
 }
