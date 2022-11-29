@@ -31,7 +31,7 @@ class App extends React.Component {
           location: "Washington, DC",
           start: "Feb 2024",
           end: "Present",
-          description: '- Developed websites',
+          description: "- Developed websites",
         },
       ],
     };
@@ -110,22 +110,28 @@ class App extends React.Component {
       <div className='App'>
         <div className='App--header'>
           <h1>CV Generator</h1>
-          <Display info={this.state} />
-          <General state={this.state} handleGeneral={this.handleGeneral} />
-          <br />
-          <Education
-            state={this.state}
-            handleEducation={this.handleEducation}
-            addEducation={this.addEducation}
-            removeEducation={this.removeEducation}
-          />
-          <br />
-          <Experience
-            state={this.state}
-            handleExperience={this.handleExperience}
-            addExperience={this.addExperience}
-            removeExperience={this.removeExperience}
-          />
+        </div>
+        <div className='App--content'>
+          <div className='App--display'>
+            <Display info={this.state} />
+          </div>
+          <div className='App--form'>
+            <General state={this.state} handleGeneral={this.handleGeneral} />
+            <br />
+            <Education
+              state={this.state}
+              handleEducation={this.handleEducation}
+              addEducation={this.addEducation}
+              removeEducation={this.removeEducation}
+            />
+            <br />
+            <Experience
+              state={this.state}
+              handleExperience={this.handleExperience}
+              addExperience={this.addExperience}
+              removeExperience={this.removeExperience}
+            />
+          </div>
         </div>
       </div>
     );

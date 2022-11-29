@@ -4,13 +4,32 @@
   box-sizing: border-box;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App--content {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
 .general, .education, .experience {
   width: 200px;
+}
+
+.general, .education, .experience {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .general--form, .education--form, .experience--form {
   display: flex;
   flex-direction: column;
+  gap: 3px;
 }
 
 .display--exp-desc {
