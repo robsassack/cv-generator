@@ -126,9 +126,6 @@ class App extends React.Component {
           <h1>CV Generator</h1>
         </div>
         <div className='App--content'>
-          <div className='App--display'>
-            <Display info={this.state} />
-          </div>
           <div className='App--form'>
             <General state={this.state} handleGeneral={this.handleGeneral} />
             <br />
@@ -147,6 +144,9 @@ class App extends React.Component {
             />
             <br />
             <button onClick={this.clearForm}>Reset</button>
+          </div>
+          <div className='App--display'>
+            <Display info={this.state} />
           </div>
         </div>
       </div>
