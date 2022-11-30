@@ -64,6 +64,10 @@ body {
   gap: 3px;
 }
 
+textarea {
+  height: 75px;
+}
+
 .display {
   font-family: 'Times New Roman', Times, serif;
   padding: 10px;
