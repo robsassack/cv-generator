@@ -3,7 +3,7 @@ import Display from "./components/Display";
 import General from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
-import "./App.css";
+import "./styles/App.css";
 
 class App extends React.Component {
   constructor() {
