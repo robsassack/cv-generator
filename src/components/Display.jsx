@@ -1,9 +1,9 @@
 import React from "react";
 import { nanoid } from "nanoid";
 
-class Display extends React.Component {
-  displayEducation = () => {
-    return this.props.info.education.map((education) => {
+function Display(props) {
+  const displayEducation = () => {
+    return props.info.education.map((education) => {
       return (
         <div className='display--education' key={nanoid()}>
           <div className='display--apart'>
@@ -21,8 +21,8 @@ class Display extends React.Component {
     });
   };
 
-  displayExperience = () => {
-    return this.props.info.experience.map((experience) => {
+  const displayExperience = () => {
+    return props.info.experience.map((experience) => {
       return (
         <div className='display--experience' key={nanoid()}>
           <div className='display--apart'>
@@ -41,27 +41,25 @@ class Display extends React.Component {
     });
   };
 
-  render() {
-    return (
-      <div className='display'>
-        <div className='display--info'>
-          <div className='display--general'>
-            <h2>
-              {this.props.info.firstName} {this.props.info.lastName}
-            </h2>
-            <p>{this.props.info.location}</p>
-            <p>
-              {this.props.info.phone} | {this.props.info.email}
-            </p>
-          </div>
+  return (
+    <div className='display'>
+      <div className='display--info'>
+        <div className='display--general'>
+          <h2>
+            {props.info.firstName} {props.info.lastName}
+          </h2>
+          <p>{props.info.location}</p>
+          <p>
+            {props.info.phone} | {props.info.email}
+          </p>
         </div>
-        <p className='display--title'>EDUCATION</p>
-        {this.displayEducation()}
-        <p className='display--title'>EXPERIENCE</p>
-        {this.displayExperience()}
       </div>
-    );
-  }
+      <p className='display--title'>EDUCATION</p>
+      {displayEducation()}
+      <p className='display--title'>EXPERIENCE</p>
+      {displayExperience()}
+    </div>
+  );
 }
 
 export default Display;

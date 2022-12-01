@@ -1,66 +1,66 @@
 import React from "react";
 
-class Education extends React.Component {
-  educationForm = () => {
-    return this.props.state.education.map((education, index) => {
+function Education(props) {
+  const educationForm = () => {
+    return props.state.education.map((education, index) => {
       return (
-        <div className="education--form" key={index}>
+        <div className='education--form' key={index}>
           <input
-            type="text"
-            placeholder="School"
-            name="school"
+            type='text'
+            placeholder='School'
+            name='school'
             value={education.school}
-            onChange={(event) => this.props.handleEducation(event, index)}
+            onChange={(event) => props.handleEducation(event, index)}
           />
           <input
-            type="text"
-            placeholder="Degree"
-            name="degree"
+            type='text'
+            placeholder='Degree'
+            name='degree'
             value={education.degree}
-            onChange={(event) => this.props.handleEducation(event, index)}
+            onChange={(event) => props.handleEducation(event, index)}
           />
           <input
-            type="text"
-            placeholder="Major"
-            name="major"
+            type='text'
+            placeholder='Major'
+            name='major'
             value={education.major}
-            onChange={(event) => this.props.handleEducation(event, index)}
+            onChange={(event) => props.handleEducation(event, index)}
           />
           <input
-            type="text"
-            placeholder="Location"
-            name="location"
+            type='text'
+            placeholder='Location'
+            name='location'
             value={education.location}
-            onChange={(event) => this.props.handleEducation(event, index)}
+            onChange={(event) => props.handleEducation(event, index)}
           />
           <input
-            type="text"
-            placeholder="Start Date"
-            name="start"
+            type='text'
+            placeholder='Start Date'
+            name='start'
             value={education.start}
-            onChange={(event) => this.props.handleEducation(event, index)}
+            onChange={(event) => props.handleEducation(event, index)}
           />
           <input
-            type="text"
-            placeholder="End Date"
-            name="end"
+            type='text'
+            placeholder='End Date'
+            name='end'
             value={education.end}
-            onChange={(event) => this.props.handleEducation(event, index)}
+            onChange={(event) => props.handleEducation(event, index)}
           />
-          <button onClick={(index) => this.props.removeEducation(index)}>Remove education</button>
+          <button onClick={(index) => props.removeEducation(index)}>
+            Remove education
+          </button>
         </div>
       );
     });
-  }
+  };
 
-  render() {
-    return (
-      <div className="education">
-        {this.educationForm()}
-        <button onClick={this.props.addEducation}>Add education</button>
-      </div>
-    );
-  }
+  return (
+    <div className='education'>
+      {educationForm()}
+      <button onClick={props.addEducation}>Add education</button>
+    </div>
+  );
 }
 
 export default Education;

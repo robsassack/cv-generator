@@ -1,65 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import Display from "./components/Display";
 import General from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import "./styles/App.css";
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      firstName: "John",
-      lastName: "Smith",
-      location: "Washington, DC",
-      email: "john@smith.com",
-      phone: "123-456-7890",
-      education: [
-        {
-          school: "United States University",
-          degree: "Bachelor of Science",
-          major: "Computer Science",
-          location: "Washington, DC",
-          start: "Jan 2020",
-          end: "Jan 2024",
-        },
-      ],
-      experience: [
-        {
-          company: "Google",
-          title: "Web Developer",
-          location: "Washington, DC",
-          start: "Feb 2024",
-          end: "Present",
-          description: `- Developed websites\n- Developed apps`,
-        },
-      ],
-    };
+function App() {
+  const [state, setState] = useState({
+    firstName: "John",
+    lastName: "Smith",
+    location: "Washington, DC",
+    email: "john@smith.com",
+    phone: "123-456-7890",
+    education: [
+      {
+        school: "United States University",
+        degree: "Bachelor of Science",
+        major: "Computer Science",
+        location: "Washington, DC",
+        start: "Jan 2020",
+        end: "Jan 2024",
+      },
+    ],
+    experience: [
+      {
+        company: "Google",
+        title: "Web Developer",
+        location: "Washington, DC",
+        start: "Feb 2024",
+        end: "Present",
+        description: `- Developed websites\n- Developed apps`,
+      },
+    ],
+  });
+
+  function handleGeneral(event) {
+    const { name, value } = event.target;
+    setState({ ...state, [name]: value });
   }
 
-  handleGeneral = (event) => {
+  function handleEducation(event, index) {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
-  };
-
-  handleEducation = (event, index) => {
-    const { name, value } = event.target;
-    const education = this.state.education;
+    const education = state.education;
     education[index][name] = value;
-    this.setState({ education });
-  };
+    setState({ ...state, education });
+  }
 
-  handleExperience = (event, index) => {
+  function handleExperience(event, index) {
     const { name, value } = event.target;
-    console.log(value);
-    const experience = this.state.experience;
+    const experience = state.experience;
     experience[index][name] = value;
-    this.setState({ experience });
-  };
+    setState({ ...state, experience });
+  }
 
-  addEducation = () => {
-    this.setState((prevState) => {
+  function addEducation() {
+    setState((prevState) => {
       return {
+        ...prevState,
         education: [
           ...prevState.education,
           {
@@ -73,17 +70,18 @@ class App extends React.Component {
         ],
       };
     });
-  };
+  }
 
-  removeEducation = (index) => {
-    const education = this.state.education;
+  function removeEducation(index) {
+    const education = state.education;
     education.splice(index, 1);
-    this.setState({ education });
-  };
+    setState({ ...state, education });
+  }
 
-  addExperience = () => {
-    this.setState((prevState) => {
+  function addExperience() {
+    setState((prevState) => {
       return {
+        ...prevState,
         experience: [
           ...prevState.experience,
           {
@@ -97,61 +95,57 @@ class App extends React.Component {
         ],
       };
     });
-  };
+  }
 
-  removeExperience = (index) => {
-    const experience = this.state.experience;
+  function removeExperience(index) {
+    const experience = state.experience;
     experience.splice(index, 1);
-    this.setState({ experience });
-  };
+    setState({ ...state, experience });
+  }
 
-  clearForm = () => {
-    this.setState({
+  function clearForm() {
+    setState({
       firstName: "",
       lastName: "",
       location: "",
       email: "",
       phone: "",
-      education: [
-      ],
-      experience: [
-      ],
+      education: [],
+      experience: [],
     });
   }
 
-  render() {
-    return (
-      <div className='App'>
-        <div className='App--header'>
-          <h1>CV Generator</h1>
+  return (
+    <div className='App'>
+      <div className='App--header'>
+        <h1>CV Generator</h1>
+      </div>
+      <div className='App--content'>
+        <div className='App--form'>
+          <General state={state} handleGeneral={handleGeneral} />
+          <br />
+          <Education
+            state={state}
+            handleEducation={handleEducation}
+            addEducation={addEducation}
+            removeEducation={removeEducation}
+          />
+          <br />
+          <Experience
+            state={state}
+            handleExperience={handleExperience}
+            addExperience={addExperience}
+            removeExperience={removeExperience}
+          />
+          <br />
+          <button onClick={clearForm}>Reset</button>
         </div>
-        <div className='App--content'>
-          <div className='App--form'>
-            <General state={this.state} handleGeneral={this.handleGeneral} />
-            <br />
-            <Education
-              state={this.state}
-              handleEducation={this.handleEducation}
-              addEducation={this.addEducation}
-              removeEducation={this.removeEducation}
-            />
-            <br />
-            <Experience
-              state={this.state}
-              handleExperience={this.handleExperience}
-              addExperience={this.addExperience}
-              removeExperience={this.removeExperience}
-            />
-            <br />
-            <button onClick={this.clearForm}>Reset</button>
-          </div>
-          <div className='App--display'>
-            <Display info={this.state} />
-          </div>
+        <div className='App--display'>
+          <Display info={state} />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
