@@ -46,7 +46,10 @@ function Experience(props) {
             value={experience.description}
             onChange={(event) => props.handleExperience(event, index)}
           />
-          <button onClick={(index) => props.removeExperience(index)}>
+          <button
+            className='button-remove'
+            onClick={(index) => props.removeExperience(index)}
+          >
             Remove experience
           </button>
         </div>
@@ -57,7 +60,9 @@ function Experience(props) {
   return (
     <div className='experience'>
       {experienceForm()}
-      <button onClick={props.addExperience}>Add experience</button>
+      <button className='button-add' onClick={props.addExperience}>
+        Add experience
+      </button>
     </div>
   );
 }

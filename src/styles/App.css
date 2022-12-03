@@ -64,6 +64,49 @@ body {
   gap: 3px;
 }
 
+button {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #282c34;
+  color: white;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.5);
+}
+
+button:hover {
+  background-color: #1a1d23;
+}
+
+button:active {
+  background-color: #0d0f12;
+  transform: scale(0.95);
+}
+
+.button-add {
+  background-color: #6dc280;
+}
+
+.button-add:hover {
+  background-color: #5fae6e;
+}
+
+.button-add:active {
+  background-color: #4d945b;
+}
+
+.button-remove {
+  background-color: #d26d6d;
+}
+
+.button-remove:hover {
+  background-color: #c05a5a;
+}
+
+.button-remove:active {
+  background-color: #ae4747;
+}
+
 textarea {
   height: 75px;
 }

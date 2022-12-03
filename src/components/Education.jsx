@@ -47,7 +47,10 @@ function Education(props) {
             value={education.end}
             onChange={(event) => props.handleEducation(event, index)}
           />
-          <button onClick={(index) => props.removeEducation(index)}>
+          <button
+            className='button-remove'
+            onClick={(index) => props.removeEducation(index)}
+          >
             Remove education
           </button>
         </div>
@@ -58,7 +61,9 @@ function Education(props) {
   return (
     <div className='education'>
       {educationForm()}
-      <button onClick={props.addEducation}>Add education</button>
+      <button className='button-add' onClick={props.addEducation}>
+        Add education
+      </button>
     </div>
   );
 }
