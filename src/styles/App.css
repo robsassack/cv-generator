@@ -13,7 +13,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .App--header {
@@ -32,6 +33,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  flex: 1;
 }
 
 .App--form {
@@ -46,6 +48,19 @@ body {
   height: 509px;
   font-size: 13px;
   background-color: white;
+}
+
+.App--footer {
+  margin: 15px;
+}
+
+.App--repo-link {
+  font-size: 2.2em;
+  color: #282c34;
+}
+
+.App--repo-link:hover {
+  color: #626772;
 }
 
 .general, .education, .experience {

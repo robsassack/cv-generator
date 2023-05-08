@@ -144,6 +144,11 @@ function App() {
           <Display info={state} />
         </div>
       </div>
+      <div className='App--footer'>
+        <a href='https://github.com/robsassack/cv-generator'>
+          <i class='fa-brands fa-github App--repo-link'></i>
+        </a>
+      </div>
     </div>
   );
 }
